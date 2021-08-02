@@ -1,0 +1,306 @@
+<html lang="en">
+  <head>
+    <meta
+      charset="utf-8"
+      http-equiv="X-UA-Compatible"
+      content="IE=edge,chrome=1"
+    />
+    <!--<link rel="icon" href="_assets/images/favicon.png" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Pre-checkin software" />
+    <link rel="stylesheet" href="_assets/css/fa.all.min.css" as="style" />
+    <link rel="stylesheet" href="_assets/css/bulma.min.css" as="style" />
+    <link rel="stylesheet" href="_assets/css/site.css" as="style" />
+    <title>Pre-checkin software</title>
+  </head>
+  <body>
+    <!-- menu horizontal -->
+    <div class="container is-mobile">
+      <nav class="navbar box" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img
+              src="https://bulma.io/images/bulma-logo.png"
+              width="112"
+              height="28"
+            />
+          </a>
+
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item"> <i class="fas fa-2x fa-share-alt"></i> </a>
+
+            <div class="navbar-item">
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link"> <i class="fas fa-2x fa-globe"></i> </a>
+                <div class="navbar-dropdown">
+                  <a class="navbar-item"> EN </a>
+                  <a class="navbar-item"> GE </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="navbar-item">
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link"> <i class="fas fa-2x fa-user"></i> </a>
+
+                <div class="navbar-dropdown">
+                  <a class="navbar-item"> Update profile </a>
+                  <a class="navbar-item"> Settings </a>
+                  <hr class="navbar-divider" />
+                  <a class="navbar-item"> Log out </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- menu vertical -->
+    <div class="container is-mobile">
+      <div class="columns is-mobile">
+        <!-- menu vertical -->
+        <div class="column is-3">
+          <br />
+          <aside class="menu">
+            <ul class="menu-list">
+              <li>
+                <a href="#" class="active"
+                  ><i class="fas fa-2x fa-suitcase"></i>&nbsp; My booking</a
+                >
+              </li>
+              <li>
+                <a href="#"><i class="fas fa-2x fa-cloud"></i>&nbsp; Weather</a>
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-2x fa-calendar-alt"></i>&nbsp; Arrival</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-2x fa-burn"></i>&nbsp; Grill plush</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-2x fa-shopping-basket"></i>&nbsp; Picnic
+                  basket</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-2x fa-utensils"></i>&nbsp; Dining options</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-2x fa-info-circle"></i>&nbsp; Booking
+                  information</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fab fa-2x fa-facebook-square"></i>&nbsp;
+                  Facebook</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fab fa-2x fa-tripadvisor"></i>&nbsp; TripAdvisor</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><i class="fas fa-2x fa-check-double"></i>&nbsp; Holiday
+                  check</a
+                >
+              </li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="column is-9">
+          <br />
+          <div id="main-content">
+            <!-- page title -->
+            <h1 class="title is-1">Booking details</h1>
+            <p>Reference: 3128501486</p>
+            <p>Guest: Steffen Diemer</p>
+
+            <br />
+            <br />
+            <!-- date info -->
+            <div class="columns box is-mobile">
+              <div class="column is-4">
+                <p class="has-text-grey has-text-centered">Arrival</p>
+                <p class="is-size-5 has-text-centered has-text-weight-semibold">
+                  Monday, August 2, 2021
+                </p>
+              </div>
+              <div class="column is-4">
+                <p class="has-text-centered">
+                  <i class="fas fa-3x fa-arrow-right"></i>
+                </p>
+              </div>
+              <div class="column is-4">
+                <p class="has-text-grey has-text-centered">Departure</p>
+                <p class="is-size-5 has-text-centered has-text-weight-semibold">
+                  Thursday, August 5, 2021
+                </p>
+              </div>
+            </div>
+
+            <br />
+            <br />
+
+            <!-- summary -->
+            <div class="columns is-multiline box is-mobile">
+              <div class="column is-12">
+                <p class="is-size-4 has-text-weight-bold">Summary</p>
+              </div>
+              <div class="column is-6">
+                <div class="box-gray">
+                  <p class="is-size-5 has-text-weight-semibold">
+                    Rooms in this reservation
+                  </p>
+                  <p class="has-text-grey">1x "Stoa-Helmat" Double Room</p>
+                </div>
+              </div>
+              <div class="column is-6">
+                <div class="box-gray">
+                  <p class="is-size-5 has-text-weight-semibold">
+                    People in this reservation
+                  </p>
+                  <p class="has-text-grey">2x adults</p>
+                </div>
+              </div>
+              <div class="column is-12">
+                <div class="box-gray">
+                  <p class="has-text-centered">
+                    Pre-Check-In incomplete
+                    <i class="fas fa-exclamation-circle has-text-danger"></i>
+                  </p>
+                </div>
+              </div>
+              <div class="column is-12">
+                <div class="box-gray">
+                  <p class="has-text-centered">
+                    Total cost of your stay
+                    <span class="is-size-5 has-text-weight-bold">148,90 €</span>
+                  </p>
+                </div>
+              </div>
+              <div class="column is-12 has-text-right">
+                <a href="my-booking.html" class="button is-info"
+                  >GO TO PRE-CHECK-IN</a
+                >
+              </div>
+            </div>
+
+            <br />
+            <br />
+
+            <!-- booking details -->
+            <div class="columns is-multiline box">
+              <div class="column is-12">
+                <p class="is-size-4 has-text-weight-bold">
+                  "Stoa-Heimat" Double Room
+                </p>
+              </div>
+              <div class="column is-6">
+                <figure class="image">
+                  <img src="_assets/images/1407953244000-177513283.jpg" />
+                </figure>
+              </div>
+              <div class="column is-6">
+                <p>
+                  <span class="has-text-weight-bold">Arrival:</span> Aug 2, 2021
+                </p>
+                <p>
+                  <span class="has-text-weight-bold">Departure:</span> Aug 3,
+                  2021
+                </p>
+                <p><span class="has-text-weight-bold">Nights:</span> 1</p>
+                <p><span class="has-text-weight-bold">Adults:</span> 2</p>
+                <p>
+                  <span class="has-text-weight-bold">Rate:</span>
+                  Booking.com 1-2 Nachte
+                </p>
+              </div>
+              <div class="column is-12">
+                <p class="has-text-weight-bold">Description</p>
+                <p class="has-text-weight-semibold">
+                  16 -33 m (170 to 250 sq ft) | Sleeps up to 2 persons
+                </p>
+                <br />
+                The double room for 2 persons in the first floor. Facilities:
+                double bed, wardrobe, desk, armchair, bathroom with shower and
+                toilette, hair dryer, towel warnmer in the winter, shower gel
+                and soap, free W-LAN, safe, flat screen TV, cuddly bathrobe for
+                the hole stay.
+              </div>
+
+              <div class="column is-12">
+                <br />
+                <p class="is-size-5 has-text-weight-bold">Rates</p>
+                <div class="columns is-multiline is-mobile">
+                  <div class="column is-12">
+                    <p class="has-text-weight-semibold">2X Adult</p>
+                  </div>
+                  <div class="column is-7">
+                    <p>
+                      UF Booking.com 1-2 Nachte <br />
+                      Aug 2, 2021 - Aug 3, 2021
+                    </p>
+                  </div>
+                  <div class="column is-5">
+                    <p class="has-text-weight-bold has-text-right">144, 90 €</p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-12">
+                <p class="is-size-5 has-text-weight-bold">Services</p>
+                <div class="columns is-mobile">
+                  <div class="column is-7">
+                    <p>2 X Ortstaxe</p>
+                  </div>
+                  <div class="column is-5">
+                    <p class="has-text-weight-bold has-text-right">4, 00 €</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column is-12">
+                <div class="columns is-mobile">
+                  <div class="column is-7">
+                    <p class="is-size-5 has-text-weight-bold">
+                      Total room price
+                    </p>
+                  </div>
+                  <div class="column is-5">
+                    <p class="has-text-weight-bold has-text-right">148, 90 €</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

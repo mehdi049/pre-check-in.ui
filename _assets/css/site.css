@@ -1,0 +1,49 @@
+/** bulma override **/
+.control.has-icons-left .icon,
+.control.has-icons-right .icon {
+  z-index: auto;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  z-index: auto;
+}
+
+.bg-gray {
+  background: #eaeaea;
+}
+
+.box-gray {
+  padding: 20px;
+  background-color: #efefef;
+}
+
+.content-center {
+  display: flex;
+  height: 100%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.fa-2x {
+  font-size: 1.5em;
+}
+
+.menu-list a {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  display: block;
+}
+
+.menu-list a i {
+  width: 35px;
+}
+
+.menu-list a:hover,
+.menu-list a.active {
+  background: #f3f3f3;
+}
+
+#main-content {
+  padding-bottom: 50px;
+}
