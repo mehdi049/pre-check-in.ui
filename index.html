@@ -78,9 +78,7 @@
                 </div>
                 <div class="column is-6">
                   <div class="control has-text-right">
-                    <a href="my-booking.html" class="button is-success"
-                      >Login</a
-                    >
+                    <a href="my-booking.html" class="button is-info">Login</a>
                   </div>
                 </div>
               </div>
@@ -92,14 +90,11 @@
 
     <script src="_assets/js/bulma-calendar.min.js"></script>
     <script>
-      // Initialize all input of date type.
       const calendars = bulmaCalendar.attach('[type="date"]', {
         dateFormat: "dd-MM-yyyy", // 01.01.2021
       });
 
-      // Loop on each calendar initialized
       calendars.forEach((calendar) => {
-        // Add listener to select event
         calendar.on("select", (date) => {
           console.log(date);
         });

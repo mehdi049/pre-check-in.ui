@@ -8,6 +8,17 @@
   z-index: auto;
 }
 
+.select,
+.select select {
+  width: 100%;
+}
+
+.modal-card-foot,
+.modal-card-head {
+  display: block;
+}
+/** general **/
+
 .bg-gray {
   background: #eaeaea;
 }
@@ -46,4 +57,10 @@
 
 #main-content {
   padding-bottom: 50px;
+}
+
+/** footer ***/
+.footer {
+  background-color: #efefef;
+  padding: 2rem 1.5rem 2rem;
 }
