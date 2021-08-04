@@ -23,6 +23,11 @@
   margin-right: 0px;
 }
 
+a.dropdown-item,
+button.dropdown-item {
+  text-align: left;
+}
+
 /** general **/
 .bg-gray {
   background: #eaeaea;
@@ -45,6 +50,29 @@
   font-size: 1.5em;
 }
 
+/** horizontal menu **/
+#h-menu {
+  padding-top: 20px;
+  box-shadow: 0px 4px 7px #e2e2e2;
+}
+
+#h-menu img {
+  max-height: 80px;
+  vertical-align: middle;
+}
+
+#h-menu button {
+  border-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  #h-menu img {
+    max-height: initial;
+    max-width: 100px;
+  }
+}
+
+/** vertical menu **/
 .menu-list a {
   padding-top: 18px;
   padding-bottom: 18px;
