@@ -23,6 +23,11 @@
   margin-right: 0px;
 }
 
+.columns .columns .column {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 a.dropdown-item,
 button.dropdown-item {
   text-align: left;
