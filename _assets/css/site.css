@@ -17,11 +17,13 @@
 .modal-card-head {
   display: block;
 }
-/** general **/
-.d-inline {
-  display: inline !important;
+
+.columns {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
+/** general **/
 .bg-gray {
   background: #eaeaea;
 }
@@ -60,6 +62,34 @@
 
 #main-content {
   padding-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .title.is-1 {
+    font-size: 2rem;
+  }
+
+  .is-size-5 {
+    font-size: 1.1rem !important;
+  }
+
+  .fa-2x {
+    font-size: 1.2em;
+  }
+
+  .fa-3x {
+    font-size: 2em;
+  }
+
+  .menu-list a i {
+    width: auto;
+  }
+
+  .menu-list a {
+    padding: 0.5em 0.45em;
+    text-align: center;
+    margin-bottom: 15px;
+  }
 }
 
 /** footer ***/
