@@ -18,6 +18,9 @@
   display: block;
 }
 /** general **/
+.d-inline {
+  display: inline !important;
+}
 
 .bg-gray {
   background: #eaeaea;
