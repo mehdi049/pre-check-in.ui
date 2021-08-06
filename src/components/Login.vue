@@ -21,14 +21,26 @@
             <b-field label="Booking date">
               <div class="columns is-mobile">
                 <div class="column is-6">
-                  <div class="control">
-                    <b-input placeholder="Arrival date" type="date"></b-input>
-                  </div>
+                  <b-field>
+                    <b-datepicker
+                      placeholder="Arrival date"
+                      icon="calendar-today"
+                      :locale="locale"
+                      editable
+                    >
+                    </b-datepicker>
+                  </b-field>
                 </div>
                 <div class="column is-6">
-                  <div class="control">
-                    <b-input placeholder="Departure date" type="date"></b-input>
-                  </div>
+                  <b-field>
+                    <b-datepicker
+                      placeholder="Departure date"
+                      icon="calendar-today"
+                      :locale="locale"
+                      editable
+                    >
+                    </b-datepicker>
+                  </b-field>
                 </div>
               </div>
             </b-field>
@@ -36,15 +48,12 @@
             <div class="field">
               <div class="columns is-mobile">
                 <div class="column is-6">
-                  <p class="control has-icons-left">
-                    <b-select placeholder="Language">
+                  <b-field>
+                    <b-select placeholder="Language" icon="earth">
                       <option>English</option>
                       <option>German</option>
                     </b-select>
-                    <span class="icon is-small is-left">
-                      <font-awesome-icon :icon="['fas', 'globe']" />
-                    </span>
-                  </p>
+                  </b-field>
                 </div>
                 <div class="column is-6">
                   <div class="control has-text-right">
@@ -67,6 +76,11 @@ library.add(faGlobe);
 
 export default {
   name: "Login",
+  data() {
+    return {
+      locale: undefined, // Browser locale
+    };
+  },
 };
 </script>
 <style scoped>
