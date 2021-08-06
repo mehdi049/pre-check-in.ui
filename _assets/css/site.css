@@ -72,6 +72,15 @@ button.dropdown-item {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  .content-center {
+    display: block;
+    padding-top: 10%;
+    width: 100%;
+  }
+
   #h-menu img {
     max-height: initial;
     max-width: 100px;
