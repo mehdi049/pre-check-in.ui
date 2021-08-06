@@ -5,11 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import "buefy/dist/buefy.css";
 import "./assets/css/site.css";
+import router from './router'
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;
 Vue.use(Buefy);
 
 new Vue({
-  render: (h) => h(App),
+  router,
+  render: (h) => h(App)
 }).$mount("#app");
