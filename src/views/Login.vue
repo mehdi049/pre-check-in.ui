@@ -59,6 +59,7 @@
                   <div class="control has-text-right">
                     <b-button type="is-info">Login</b-button>
                   </div>
+                  <router-link to="/my-booking">Go to Booking</router-link>
                 </div>
               </div>
             </div>
