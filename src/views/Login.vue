@@ -71,10 +71,6 @@
 </template>
 
 <script>
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
-library.add(faGlobe);
-
 export default {
   name: "Login",
   data() {

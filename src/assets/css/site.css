@@ -94,8 +94,8 @@ button.dropdown-item {
   display: block;
 }
 
-.menu-list a i {
-  width: 35px;
+.menu-list a svg {
+  width: 35px !important;
 }
 
 .menu-list a:hover,
@@ -125,7 +125,7 @@ button.dropdown-item {
   }
 
   .menu-list a i {
-    width: auto;
+    width: auto !important;
   }
 
   .menu-list a {
