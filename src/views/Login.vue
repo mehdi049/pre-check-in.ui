@@ -57,9 +57,10 @@
                 </div>
                 <div class="column is-6">
                   <div class="control has-text-right">
-                    <b-button type="is-info">Login</b-button>
+                    <b-button type="is-info" v-on:click="authenticate"
+                      >Login</b-button
+                    >
                   </div>
-                  <router-link to="/my-booking">Go to Booking</router-link>
                 </div>
               </div>
             </div>
@@ -75,8 +76,14 @@ export default {
   name: "Login",
   data() {
     return {
-      locale: undefined, // Browser locale
+      locale: undefined, // Browser locale,
     };
+  },
+  methods: {
+    authenticate: function() {
+      localStorage.setItem("user", "user");
+      this.$router.push("/my-booking");
+    },
   },
 };
 </script>
