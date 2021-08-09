@@ -29,13 +29,15 @@ import TopNavbar from "./views/_shared/TopNavbar.vue";
 import LeftNavbar from "./views/_shared/LeftNavbar.vue";
 import Footer from "./views/_shared/Footer.vue";
 
-let booking = localStorage.getItem("bookingRef");
 export default {
   name: "App",
   data() {
     return {
-      loggedIn: booking != null,
+      loggedIn: false,
     };
+  },
+  mounted: function() {
+    this.loggedIn = localStorage.getItem("booking") != null;
   },
   components: { TopNavbar, LeftNavbar, Footer },
 };

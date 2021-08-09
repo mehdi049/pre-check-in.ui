@@ -81,6 +81,8 @@
 </template>
 
 <script>
+import * as functions from "./_sharedFunctions/functions.js";
+
 export default {
   name: "Login",
   data() {
@@ -107,10 +109,8 @@ export default {
         .post("https://localhost:44386/api/CheckIn/signin", _signIn)
         .then((response) => {
           if (response.data.status === 200) {
-            localStorage.setItem(
-              "bookingRef",
-              response.data.body.bookingReference
-            );
+            let _booking = functions.setBooking(response.data.body);
+            localStorage.setItem("booking", JSON.stringify(_booking));
             this.$router.push("/my-booking");
           } else {
             this.danger(response.data.message);
