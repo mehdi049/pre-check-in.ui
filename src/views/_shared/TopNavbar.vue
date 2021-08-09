@@ -56,9 +56,9 @@
           </div>
           <div class="dropdown-menu" id="dropdown-profile" role="menu">
             <div class="dropdown-content">
-              <router-link to="/" class="dropdown-item">
+              <a href="#" v-on:click="logout" class="dropdown-item">
                 Log out
-              </router-link>
+              </a>
             </div>
           </div>
         </div>
@@ -80,5 +80,11 @@ library.add(faUser);
 
 export default {
   name: "TopNavbar",
+  methods: {
+    logout: function() {
+      localStorage.removeItem("booking");
+      this.$router.push("/");
+    },
+  },
 };
 </script>
