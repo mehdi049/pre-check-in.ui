@@ -27,8 +27,9 @@
                 <p class="has-text-grey has-text-centered">Arrival</p>
                 <p class="is-size-5 has-text-centered has-text-weight-semibold">
                   {{
-                    new Date(booking.rooms[0].arrivalDate)
-                      | date("dd MMMM yyyy")
+                    booking.rooms &&
+                      new Date(booking.rooms[0].arrivalDate)
+                        | date("dd MMMM yyyy")
                   }}
                 </p>
               </div>
@@ -41,8 +42,9 @@
                 <p class="has-text-grey has-text-centered">Departure</p>
                 <p class="is-size-5 has-text-centered has-text-weight-semibold">
                   {{
-                    new Date(booking.rooms[0].departureDate)
-                      | date("dd MMMM yyyy")
+                    booking.rooms &&
+                      new Date(booking.rooms[0].departureDate)
+                        | date("dd MMMM yyyy")
                   }}
                 </p>
               </div>
@@ -65,7 +67,7 @@
                     <li
                       class="has-text-grey disc-list"
                       v-for="room in booking.rooms"
-                      :key="room.id"
+                      :key="room.id + '-package'"
                     >
                       "{{ room.packageText }}" {{ room.roomTypeText }}
                     </li>
@@ -80,7 +82,7 @@
                   <p
                     class="has-text-grey"
                     v-for="room in booking.rooms"
-                    :key="room.id"
+                    :key="room.id + '-adults'"
                   >
                     <span
                       v-if="
@@ -99,7 +101,7 @@
                   <p
                     class="has-text-grey"
                     v-for="room in booking.rooms"
-                    :key="room.id"
+                    :key="room.id + '-minors'"
                   >
                     <span
                       v-if="
@@ -130,7 +132,10 @@
                   <p class="has-text-centered">
                     Total cost of your stay
                     <span class="is-size-5 has-text-weight-bold"
-                      >{{ booking.totalCost.toFixed(2) }} €</span
+                      >{{
+                        booking.totalCost && booking.totalCost.toFixed(2)
+                      }}
+                      €</span
                     >
                   </p>
                 </div>
@@ -150,7 +155,7 @@
               <div
                 class="columns is-multiline"
                 v-for="room in booking.rooms"
-                :key="room.id"
+                :key="room.id + '-package-details'"
               >
                 <div class="column is-12">
                   <p class="is-size-4 has-text-weight-bold">
@@ -172,7 +177,15 @@
                     <span class="has-text-weight-bold">Departure:</span>
                     {{ new Date(room.departureDate) | date("dd MMMM yyyy") }}
                   </p>
-                  <p><span class="has-text-weight-bold">Nights:</span> 1</p>
+                  <p>
+                    <span class="has-text-weight-bold">Nights:</span>
+                    {{
+                      dateDifference(
+                        new Date(room.arrivalDate),
+                        new Date(room.departureDate)
+                      )
+                    }}
+                  </p>
                   <p
                     v-if="
                       room.guests.filter(
@@ -207,7 +220,7 @@
                   <ul>
                     <li
                       v-for="rate in room.rates"
-                      :key="rate.id"
+                      :key="rate.id + '-text'"
                       class="disc-list"
                     >
                       {{ rate.rateText }}:
@@ -267,7 +280,7 @@
                       }}x Minor(s)
                     </p>
                     <br />
-                    <div v-for="rate in room.rates" :key="rate.id">
+                    <div v-for="rate in room.rates" :key="rate.id + '-info'">
                       <div class="columns is-multiline is-mobile">
                         <div class="column is-7">
                           <p>
@@ -287,7 +300,10 @@
                   </div>
                   <div class="column is-12">
                     <p class="is-size-5 has-text-weight-bold">Services</p>
-                    <div v-for="roomAdd in room.roomAdds" :key="roomAdd.id">
+                    <div
+                      v-for="roomAdd in room.roomAdds"
+                      :key="roomAdd.id + -'room-add'"
+                    >
                       <div class="columns is-mobile">
                         <div class="column is-7">
                           <p>
@@ -326,7 +342,7 @@
               <div
                 class="columns is-multiline"
                 v-for="bookingAdd in booking.bookingAdds"
-                :key="bookingAdd.id"
+                :key="bookingAdd.id + -'booking-add'"
               >
                 <div class="column is-7">
                   <p>
@@ -348,7 +364,7 @@
                 <div
                   class="column is-5 has-text-weight-bold has-text-right is-size-3"
                 >
-                  {{ booking.totalCost.toFixed(2) }} €
+                  {{ booking.totalCost && booking.totalCost.toFixed(2) }} €
                 </div>
               </div>
             </div>
@@ -362,6 +378,8 @@
 </template>
 
 <script>
+import * as functions from "./_sharedFunctions/functions.js";
+
 import TopNavbar from "./_shared/TopNavbar.vue";
 import LeftNavbar from "./_shared/LeftNavbar.vue";
 import Footer from "./_shared/Footer.vue";
@@ -381,6 +399,11 @@ export default {
     let _booking = localStorage.getItem("booking");
     if (_booking !== null) this.booking = JSON.parse(_booking);
     else this.$router.push("/");
+  },
+  methods: {
+    dateDifference(date1, date2) {
+      return functions.differenceInDays(date1, date2);
+    },
   },
   components: { TopNavbar, LeftNavbar, Footer },
 };
