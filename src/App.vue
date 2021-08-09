@@ -29,12 +29,12 @@ import TopNavbar from "./views/_shared/TopNavbar.vue";
 import LeftNavbar from "./views/_shared/LeftNavbar.vue";
 import Footer from "./views/_shared/Footer.vue";
 
-let user = localStorage.getItem("user");
+let booking = localStorage.getItem("booking");
 export default {
   name: "App",
   data() {
     return {
-      loggedIn: user != null,
+      loggedIn: booking != null,
     };
   },
   components: { TopNavbar, LeftNavbar, Footer },

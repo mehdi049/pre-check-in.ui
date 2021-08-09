@@ -25,10 +25,10 @@
       <div class="column is-6 has-text-centered">
         <figure class="image">
           <img
-            src="_assets/images/sunny-icon-14.jpg"
+            src="https://image.shutterstock.com/image-vector/weather-forecast-icon-vector-seasons-260nw-1613761456.jpg"
             alt=""
             style="max-width: 150px"
-            class="d-inline"
+            class="is-inline"
           />
         </figure>
         <p class="is-size-1 has-text-weight-bold">22 °</p>
