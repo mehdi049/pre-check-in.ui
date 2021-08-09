@@ -29,7 +29,7 @@ import TopNavbar from "./views/_shared/TopNavbar.vue";
 import LeftNavbar from "./views/_shared/LeftNavbar.vue";
 import Footer from "./views/_shared/Footer.vue";
 
-let booking = localStorage.getItem("booking");
+let booking = localStorage.getItem("bookingRef");
 export default {
   name: "App",
   data() {

@@ -107,14 +107,17 @@ export default {
         .post("https://localhost:44386/api/CheckIn/signin", _signIn)
         .then((response) => {
           if (response.data.status === 200) {
-            localStorage.setItem("booking", JSON.stringify(response.data.body));
+            localStorage.setItem(
+              "bookingRef",
+              response.data.body.bookingReference
+            );
             this.$router.push("/my-booking");
           } else {
             this.danger(response.data.message);
           }
         })
-        .catch((e) => {
-          alert(e);
+        .catch(() => {
+          this.danger("Error occurred, please try again.");
         });
     },
 
