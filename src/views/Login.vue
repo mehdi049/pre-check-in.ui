@@ -12,6 +12,8 @@
           >
             <b-field label="Booking reference">
               <b-input
+                type="text"
+                required="true"
                 placeholder="Booking reference"
                 v-model="signInModel.bookingReference"
               ></b-input>
@@ -20,6 +22,7 @@
             <b-field label="Email">
               <b-input
                 placeholder="Email"
+                required="true"
                 type="email"
                 v-model="signInModel.email"
               ></b-input>
@@ -30,6 +33,7 @@
                 <div class="column is-6">
                   <b-field>
                     <b-datepicker
+                      required="true"
                       placeholder="Arrival date"
                       icon="calendar-today"
                       :locale="locale"
@@ -42,6 +46,7 @@
                 <div class="column is-6">
                   <b-field>
                     <b-datepicker
+                      required="true"
                       placeholder="Departure date"
                       icon="calendar-today"
                       :locale="locale"
@@ -59,8 +64,8 @@
                 <div class="column is-6">
                   <b-field>
                     <b-select placeholder="Language" icon="earth">
-                      <option>English</option>
-                      <option>German</option>
+                      <option value="en">English</option>
+                      <option value="ge">German</option>
                     </b-select>
                   </b-field>
                 </div>
@@ -102,23 +107,41 @@ export default {
   },
   methods: {
     authenticate: function() {
-      let _signIn = { ...this.signInModel };
-      _signIn.arrivalDate = this.ignoreTimezone(_signIn.arrivalDate);
-      _signIn.departureDate = this.ignoreTimezone(_signIn.departureDate);
-      this.axios
-        .post("https://localhost:44386/api/CheckIn/signin", _signIn)
-        .then((response) => {
-          if (response.data.status === 200) {
-            let _booking = functions.setBooking(response.data.body);
-            localStorage.setItem("booking", JSON.stringify(_booking));
-            this.$router.push("/my-booking");
-          } else {
-            this.danger(response.data.message);
-          }
-        })
-        .catch(() => {
-          this.danger("Error occurred, please try again.");
-        });
+      if (!this.validateForm()) {
+        let _signIn = { ...this.signInModel };
+        _signIn.arrivalDate = this.ignoreTimezone(_signIn.arrivalDate);
+        _signIn.departureDate = this.ignoreTimezone(_signIn.departureDate);
+        this.axios
+          .post("https://localhost:44386/api/CheckIn/signin", _signIn)
+          .then((response) => {
+            if (response.data.status === 200) {
+              let _booking = functions.setBooking(response.data.body);
+              localStorage.setItem("booking", JSON.stringify(_booking));
+              this.$router.push("/my-booking");
+            } else {
+              this.danger(response.data.message);
+            }
+          })
+          .catch(() => {
+            this.danger("Error occurred, please try again.");
+          });
+      }
+    },
+
+    validateForm: function() {
+      let error = false;
+      const reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+
+      if (
+        this.signInModel.bookingReference === "" ||
+        this.signInModel.email === "" ||
+        !reg.test(this.signInModel.email.replace(/\+/gi, ".")) ||
+        this.signInModel.arrivalDate === null ||
+        this.signInModel.departureDate === null
+      )
+        error = true;
+
+      return error;
     },
 
     danger(error) {
