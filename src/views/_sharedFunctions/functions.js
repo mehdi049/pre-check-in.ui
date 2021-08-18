@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export function setBooking(data) {
   let _booking = {};
 
@@ -6,6 +8,8 @@ export function setBooking(data) {
   _booking.bookingReference = data.bookingReference;
   _booking.reservedBy =
     data.rooms[0].guests[0].firstName + " " + data.rooms[0].guests[0].lastName;
+  _booking.statusId = data.statusId;
+  _booking.bookingStatus = data.status.status;
 
   let _bookingAdds = [];
   data.bookingAdds.map((x) => {
@@ -46,6 +50,7 @@ export function setBooking(data) {
         streetNumber: g.streetNumber,
         title: g.title,
         zip: g.zip,
+        roomId: x.id,
       });
     });
 
@@ -100,6 +105,37 @@ export function setBooking(data) {
   localStorage.setItem("booking", JSON.stringify(_booking));
 
   return _booking;
+}
+
+export function refreshBooking() {
+  let _booking = localStorage.getItem("booking");
+  if (_booking !== null) {
+    _booking = JSON.parse(_booking);
+    let reference = _booking.bookingReference;
+
+    axios
+      .get("https://localhost:44386/api/CheckIn/booking/" + reference)
+      .then((response) => {
+        if (response.data.status === 200) {
+          let _booking = setBooking(response.data.body);
+          localStorage.setItem(
+            "booking_original",
+            JSON.stringify(response.data.body)
+          );
+          localStorage.setItem("booking", JSON.stringify(_booking));
+        }
+      });
+  }
+}
+
+export function ignoreTimezone(date) {
+  if (date !== null) {
+    date = new Date(date);
+    return new Date(
+      date.getTime() - date.getTimezoneOffset() * 60000
+    ).toISOString();
+  }
+  return null;
 }
 
 export function differenceInDays(date1, date2) {

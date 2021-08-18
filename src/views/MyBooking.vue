@@ -87,13 +87,17 @@
                     <span
                       v-if="
                         room.guests.filter(
-                          (x) => x.guestTypeText.toLowerCase() === 'adult'
+                          (x) =>
+                            x.guestTypeText != null &&
+                            x.guestTypeText.toLowerCase() === 'adult'
                         ).length > 0
                       "
                     >
                       {{
                         room.guests.filter(
-                          (x) => x.guestTypeText.toLowerCase() === "adult"
+                          (x) =>
+                            x.guestTypeText != null &&
+                            x.guestTypeText.toLowerCase() === "adult"
                         ).length
                       }}x Adult(s)
                     </span>
@@ -106,13 +110,17 @@
                     <span
                       v-if="
                         room.guests.filter(
-                          (x) => x.guestTypeText.toLowerCase() !== 'adult'
+                          (x) =>
+                            x.guestTypeText != null &&
+                            x.guestTypeText.toLowerCase() !== 'adult'
                         ).length > 0
                       "
                     >
                       {{
                         room.guests.filter(
-                          (x) => x.guestTypeText.toLowerCase() !== "adult"
+                          (x) =>
+                            x.guestTypeText != null &&
+                            x.guestTypeText.toLowerCase() !== "adult"
                         ).length
                       }}x Minor(s)
                     </span>
@@ -122,8 +130,21 @@
               <div class="column is-12">
                 <div class="box-gray">
                   <p class="has-text-centered">
-                    Pre-Check-In incomplete
-                    <i class="fas fa-exclamation-circle has-text-danger"></i>
+                    Pre-check-in
+                    <span
+                      class="has-text-weight-bold has-text-danger-dark"
+                      v-if="booking.bookingStatusId == 1"
+                      >{{ booking.bookingStatus }}
+                      <font-awesome-icon
+                        :icon="['fas', 'exclamation-circle']"
+                      />
+                    </span>
+                    <span
+                      class="has-text-weight-bold has-text-success-dark"
+                      v-else
+                      >{{ booking.bookingStatus }}
+                      <font-awesome-icon :icon="['fas', 'check']" />
+                    </span>
                   </p>
                 </div>
               </div>
@@ -189,28 +210,36 @@
                   <p
                     v-if="
                       room.guests.filter(
-                        (x) => x.guestTypeText.toLowerCase() === 'adult'
+                        (x) =>
+                          x.guestTypeText != null &&
+                          x.guestTypeText.toLowerCase() === 'adult'
                       ).length > 0
                     "
                   >
                     <span class="has-text-weight-bold">Adult(s):</span>
                     {{
                       room.guests.filter(
-                        (x) => x.guestTypeText.toLowerCase() === "adult"
+                        (x) =>
+                          x.guestTypeText != null &&
+                          x.guestTypeText.toLowerCase() === "adult"
                       ).length
                     }}
                   </p>
                   <p
                     v-if="
                       room.guests.filter(
-                        (x) => x.guestTypeText.toLowerCase() !== 'adult'
+                        (x) =>
+                          x.guestTypeText != null &&
+                          x.guestTypeText.toLowerCase() !== 'adult'
                       ).length > 0
                     "
                   >
                     <span class="has-text-weight-bold">Minor(s):</span>
                     {{
                       room.guests.filter(
-                        (x) => x.guestTypeText.toLowerCase() !== "adult"
+                        (x) =>
+                          x.guestTypeText != null &&
+                          x.guestTypeText.toLowerCase() !== "adult"
                       ).length
                     }}
                   </p>
@@ -255,13 +284,17 @@
                       class="has-text-weight-semibold"
                       v-if="
                         room.guests.filter(
-                          (x) => x.guestTypeText.toLowerCase() === 'adult'
+                          (x) =>
+                            x.guestTypeText != null &&
+                            x.guestTypeText.toLowerCase() === 'adult'
                         ).length > 0
                       "
                     >
                       {{
                         room.guests.filter(
-                          (x) => x.guestTypeText.toLowerCase() === "adult"
+                          (x) =>
+                            x.guestTypeText != null &&
+                            x.guestTypeText.toLowerCase() === "adult"
                         ).length
                       }}x Adult(s)
                     </p>
@@ -269,13 +302,17 @@
                       class="has-text-weight-semibold"
                       v-if="
                         room.guests.filter(
-                          (x) => x.guestTypeText.toLowerCase() !== 'adult'
+                          (x) =>
+                            x.guestTypeText != null &&
+                            x.guestTypeText.toLowerCase() !== 'adult'
                         ).length > 0
                       "
                     >
                       {{
                         room.guests.filter(
-                          (x) => x.guestTypeText.toLowerCase() !== "adult"
+                          (x) =>
+                            x.guestTypeText != null &&
+                            x.guestTypeText.toLowerCase() !== "adult"
                         ).length
                       }}x Minor(s)
                     </p>
@@ -384,9 +421,16 @@ import TopNavbar from "./_shared/TopNavbar.vue";
 import LeftNavbar from "./_shared/LeftNavbar.vue";
 import Footer from "./_shared/Footer.vue";
 
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faExclamationCircle,
+  faCheck,
+} from "@fortawesome/free-solid-svg-icons";
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faArrowRight);
+library.add(faExclamationCircle);
+library.add(faCheck);
 
 export default {
   name: "MyBooking",

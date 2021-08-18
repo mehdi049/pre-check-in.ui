@@ -109,13 +109,17 @@ export default {
     authenticate: function() {
       if (!this.validateForm()) {
         let _signIn = { ...this.signInModel };
-        _signIn.arrivalDate = this.ignoreTimezone(_signIn.arrivalDate);
-        _signIn.departureDate = this.ignoreTimezone(_signIn.departureDate);
+        _signIn.arrivalDate = functions.ignoreTimezone(_signIn.arrivalDate);
+        _signIn.departureDate = functions.ignoreTimezone(_signIn.departureDate);
         this.axios
           .post("https://localhost:44386/api/CheckIn/signin", _signIn)
           .then((response) => {
             if (response.data.status === 200) {
               let _booking = functions.setBooking(response.data.body);
+              localStorage.setItem(
+                "booking_original",
+                JSON.stringify(response.data.body)
+              );
               localStorage.setItem("booking", JSON.stringify(_booking));
               this.$router.push("/my-booking");
             } else {
@@ -125,7 +129,7 @@ export default {
           .catch(() => {
             this.danger("Error occurred, please try again.");
           });
-      }
+      } else this.danger("Please fill all the required fields.");
     },
 
     validateForm: function() {
@@ -144,23 +148,13 @@ export default {
       return error;
     },
 
-    danger(error) {
+    danger(msg) {
       this.$buefy.toast.open({
         duration: 5000,
-        message: error,
+        message: msg,
         position: "is-top",
         type: "is-danger",
       });
-    },
-
-    ignoreTimezone(date) {
-      if (date !== null) {
-        date = new Date(date);
-        return new Date(
-          date.getTime() - date.getTimezoneOffset() * 60000
-        ).toISOString();
-      }
-      return null;
     },
   },
 };
