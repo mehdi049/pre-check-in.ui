@@ -344,7 +344,7 @@ export default {
     let _booking = JSON.parse(localStorage.getItem("booking"));
     return {
       locale: undefined, // Browser locale,
-      isConfirmed: _booking.statusId !== 1,
+      isConfirmed: _booking.bookingStatusId !== 1,
       isEditGuestModalActive: false,
       isPrivacyModalActive: false,
       selectedGuestToUpdate: {},
@@ -372,7 +372,7 @@ export default {
 
         this.axios
           .put(
-            "https://localhost:44386/api/CheckIn/guest",
+            process.env.VUE_APP_PRECHECKIN_API_ENDPOINT + "/CheckIn/guest",
             _selectedGuestToUpdate
           )
           .then((response) => {
@@ -398,7 +398,8 @@ export default {
 
       this.axios
         .put(
-          "https://localhost:44386/api/CheckIn/confirm/" +
+          process.env.VUE_APP_PRECHECKIN_API_ENDPOINT +
+            "/CheckIn/confirm/" +
             this.booking.bookingReference
         )
         .then((response) => {

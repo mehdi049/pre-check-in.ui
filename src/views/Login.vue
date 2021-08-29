@@ -112,7 +112,10 @@ export default {
         _signIn.arrivalDate = functions.ignoreTimezone(_signIn.arrivalDate);
         _signIn.departureDate = functions.ignoreTimezone(_signIn.departureDate);
         this.axios
-          .post("https://localhost:44386/api/CheckIn/signin", _signIn)
+          .post(
+            process.env.VUE_APP_PRECHECKIN_API_ENDPOINT + "/CheckIn/signin",
+            _signIn
+          )
           .then((response) => {
             if (response.data.status === 200) {
               let _booking = functions.setBooking(response.data.body);

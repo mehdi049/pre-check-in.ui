@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:prd": "env-cmd -f .env.prd vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "axios": "^0.21.1",
     "buefy": "^0.9.8",
     "core-js": "^3.6.5",
+    "env-cmd": "^10.1.0",
     "es6-promise": "^4.2.8",
     "vue": "^2.6.11",
     "vue-axios": "^3.2.5",

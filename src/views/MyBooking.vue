@@ -133,7 +133,7 @@
                     Pre-check-in
                     <span
                       class="has-text-weight-bold has-text-danger-dark"
-                      v-if="booking.bookingStatusId == 1"
+                      v-if="booking.bookingStatusId === 1"
                       >{{ booking.bookingStatus }}
                       <font-awesome-icon
                         :icon="['fas', 'exclamation-circle']"

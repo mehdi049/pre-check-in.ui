@@ -8,7 +8,7 @@ export function setBooking(data) {
   _booking.bookingReference = data.bookingReference;
   _booking.reservedBy =
     data.rooms[0].guests[0].firstName + " " + data.rooms[0].guests[0].lastName;
-  _booking.statusId = data.statusId;
+  _booking.bookingStatusId = data.statusId;
   _booking.bookingStatus = data.status.status;
 
   let _bookingAdds = [];
@@ -114,7 +114,11 @@ export function refreshBooking() {
     let reference = _booking.bookingReference;
 
     axios
-      .get("https://localhost:44386/api/CheckIn/booking/" + reference)
+      .get(
+        process.env.VUE_APP_PRECHECKIN_API_ENDPOINT +
+          "/CheckIn/booking/" +
+          reference
+      )
       .then((response) => {
         if (response.data.status === 200) {
           let _booking = setBooking(response.data.body);
