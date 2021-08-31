@@ -424,14 +424,23 @@ export default {
         this.selectedGuestToUpdate.email === "" ||
         !reg.test(this.selectedGuestToUpdate.email.replace(/\+/gi, ".")) ||
         this.selectedGuestToUpdate.firstName === null ||
+        this.selectedGuestToUpdate.firstName === "" ||
         this.selectedGuestToUpdate.lastName === null ||
+        this.selectedGuestToUpdate.lastName === "" ||
         this.selectedGuestToUpdate.birthday === null ||
+        this.selectedGuestToUpdate.birthday === "" ||
         this.selectedGuestToUpdate.phone === null ||
+        this.selectedGuestToUpdate.phone === "" ||
         this.selectedGuestToUpdate.country === null ||
+        this.selectedGuestToUpdate.country === "" ||
         this.selectedGuestToUpdate.street === null ||
+        this.selectedGuestToUpdate.street === "" ||
         this.selectedGuestToUpdate.streetNumber === null ||
+        this.selectedGuestToUpdate.streetNumber === "" ||
         this.selectedGuestToUpdate.zip === null ||
-        this.selectedGuestToUpdate.city === null
+        this.selectedGuestToUpdate.zip === "" ||
+        this.selectedGuestToUpdate.city === null ||
+        this.selectedGuestToUpdate.city === ""
       )
         error = true;
 
