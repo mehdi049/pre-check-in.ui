@@ -371,7 +371,7 @@ export default {
         );
 
         this.axios
-          .put(
+          .post(
             process.env.VUE_APP_PRECHECKIN_API_ENDPOINT + "/CheckIn/guest",
             _selectedGuestToUpdate
           )
@@ -397,7 +397,7 @@ export default {
       );
 
       this.axios
-        .put(
+        .post(
           process.env.VUE_APP_PRECHECKIN_API_ENDPOINT +
             "/CheckIn/confirm/" +
             this.booking.bookingReference
