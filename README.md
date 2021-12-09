@@ -1,4 +1,6 @@
 # precheckin
+- Pre-check-in system allowing guests to log in, confirm their rooms booking.
+- The system consume data from .NET APIs and from the PMS system (not done yet)
 
 ## Project setup
 ```
