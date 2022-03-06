@@ -22,7 +22,7 @@
             <br />
             <br />
             <!-- date info -->
-            <div class="columns box is-mobile">
+            <div class="columns box">
               <div class="column is-4">
                 <p class="has-text-grey has-text-centered">Arrival</p>
                 <p class="is-size-5 has-text-centered has-text-weight-semibold">
@@ -35,7 +35,16 @@
               </div>
               <div class="column is-4">
                 <p class="has-text-centered">
-                  <font-awesome-icon size="3x" :icon="['fas', 'arrow-right']" />
+                  <font-awesome-icon
+                    size="3x"
+                    :icon="['fas', 'arrow-right']"
+                    class="is-hidden-mobile"
+                  />
+                  <font-awesome-icon
+                    size="3x"
+                    :icon="['fas', 'arrow-down']"
+                    class="is-hidden-tablet"
+                  />
                 </p>
               </div>
               <div class="column is-4">
@@ -54,7 +63,7 @@
             <br />
 
             <!-- summary -->
-            <div class="columns is-multiline box is-mobile">
+            <div class="columns is-multiline box">
               <div class="column is-12">
                 <p class="is-size-4 has-text-weight-bold">Summary</p>
               </div>
@@ -318,7 +327,7 @@
                     </p>
                     <br />
                     <div v-for="rate in room.rates" :key="rate.id + '-info'">
-                      <div class="columns is-multiline is-mobile">
+                      <div class="columns is-multiline">
                         <div class="column is-7">
                           <p>
                             {{ rate.rateText }} <br />
@@ -341,7 +350,7 @@
                       v-for="roomAdd in room.roomAdds"
                       :key="roomAdd.id + -'room-add'"
                     >
-                      <div class="columns is-mobile">
+                      <div class="columns">
                         <div class="column is-7">
                           <p>
                             {{ roomAdd.roomAddAmount }}x
@@ -357,7 +366,7 @@
                     </div>
                   </div>
                   <div class="column is-12">
-                    <div class="columns is-mobile">
+                    <div class="columns">
                       <div class="column is-7">
                         <p class="is-size-5 has-text-weight-bold">
                           Total room price
@@ -374,8 +383,12 @@
               </div>
 
               <hr />
+              <div class="columns">
+                <div class="column is-12">
+                  <p class="is-size-5 has-text-weight-bold">Booking extra</p>
+                </div>
+              </div>
 
-              <p class="is-size-5 has-text-weight-bold">Booking extra</p>
               <div
                 class="columns is-multiline"
                 v-for="bookingAdd in booking.bookingAdds"
@@ -395,11 +408,13 @@
               <hr />
 
               <div class="columns">
-                <div class="column is-7 is-size-3 has-text-weight-bold">
+                <div
+                  class="column is-7 is-size-3 has-text-weight-bold has-text-centered-mobile"
+                >
                   Total price
                 </div>
                 <div
-                  class="column is-5 has-text-weight-bold has-text-right is-size-3"
+                  class="column is-5 has-text-weight-bold has-text-right is-size-3 has-text-centered-mobile"
                 >
                   {{ booking.totalCost && booking.totalCost.toFixed(2) }} €
                 </div>
@@ -425,10 +440,12 @@ import {
   faArrowRight,
   faExclamationCircle,
   faCheck,
+  faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faArrowRight);
+library.add(faArrowDown);
 library.add(faExclamationCircle);
 library.add(faCheck);
 

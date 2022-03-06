@@ -6,6 +6,7 @@
         <router-link to="/my-booking">
           <img
             src="https://cdn3.vectorstock.com/i/1000x1000/88/47/royal-hotel-logo-vector-31948847.jpg"
+            class="image is-48x48"
           />
         </router-link>
       </div>

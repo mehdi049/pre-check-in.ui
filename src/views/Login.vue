@@ -6,7 +6,7 @@
           <div
             class="
               column
-              is-10-mobile is-6-tablet is-6-desktop is-5-widescreen is-4-fullhd
+              is-10-mobile is-6-tablet is-5-widescreen is-4-fullhd
               box
             "
           >
@@ -29,7 +29,7 @@
             </b-field>
 
             <b-field label="Booking date">
-              <div class="columns is-mobile">
+              <div class="columns">
                 <div class="column is-6">
                   <b-field>
                     <b-datepicker
