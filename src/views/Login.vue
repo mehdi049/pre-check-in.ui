@@ -4,11 +4,7 @@
       <div class="container">
         <div class="columns is-mobile is-centered">
           <div
-            class="
-              column
-              is-10-mobile is-6-tablet is-5-widescreen is-4-fullhd
-              box
-            "
+            class="column is-10-mobile is-6-tablet is-5-widescreen is-4-fullhd box"
           >
             <b-field label="Booking reference">
               <b-input
@@ -19,12 +15,12 @@
               ></b-input>
             </b-field>
 
-            <b-field label="Email">
+            <b-field label="Last name">
               <b-input
-                placeholder="Email"
+                placeholder="Last name"
                 required="true"
-                type="email"
-                v-model="signInModel.email"
+                type="text"
+                v-model="signInModel.lastname"
               ></b-input>
             </b-field>
 
@@ -99,7 +95,7 @@ export default {
           this.$route.query.ref.length > 0
             ? this.$route.query.ref
             : "202107-003-1",
-        email: "mehdi.marouani.049@gmail.com",
+        lastname: "Diemer",
         arrivalDate: new Date("2021-07-28"),
         departureDate: new Date("2021-08-01"),
       },
@@ -137,12 +133,9 @@ export default {
 
     validateForm: function() {
       let error = false;
-      const reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-
       if (
         this.signInModel.bookingReference === "" ||
-        this.signInModel.email === "" ||
-        !reg.test(this.signInModel.email.replace(/\+/gi, ".")) ||
+        this.signInModel.lastname === "" ||
         this.signInModel.arrivalDate === null ||
         this.signInModel.departureDate === null
       )
